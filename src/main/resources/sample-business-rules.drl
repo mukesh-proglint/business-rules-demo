@@ -1,0 +1,12 @@
+import com.proglint.businessrulesdemo.model.Customer;
+
+global com.proglint.businessrulesdemo.model.PremiumResult premiumResult;
+
+dialect "mvel"
+
+rule "Calculate Premium for Adult Male"
+    when
+        Customer(age > 20 && gender == 'M');
+    then
+        premiumResult.setPremium(100);
+end
